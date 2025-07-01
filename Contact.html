@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Travel to Hunza</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    body {
+      background: #f8f8f8;
+      color: #333;
+    }
+
+    .hero-section {
+      position: relative;
+      height: 100vh;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .hero-section img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .hero-section h1 {
+      z-index: 1;
+      font-size: 4rem;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    }
+
+    .hamburger-menu {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      z-index: 1001;
+    }
+
+    .menu-icon {
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    .menu {
+      position: absolute;
+      top: 2.8rem;
+      right: 0;
+      background: rgba(0, 0, 0, 0.95);
+      border-radius: 5px;
+      display: none;
+      flex-direction: column;
+      min-width: 180px;
+      padding: 1rem 0;
+    }
+
+    .menu a {
+      padding: 0.8rem 1.2rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .menu a:hover {
+      background: #4B5320;
+    }
+
+    #menu-toggle:checked + .menu-icon + .menu {
+      display: flex;
+    }
+
+    /* Contact Form */
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: -5rem auto 3rem;
+      background-color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .form-section {
+      flex: 2;
+      margin-right: 2rem;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form textarea {
+      height: 120px;
+      resize: none;
+    }
+
+    form button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #4B5320;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .info-section {
+      flex: 1;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .info-section span {
+      color: teal;
+      font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .info-section a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        flex-direction: column;
+      }
+      .form-section {
+        margin-right: 0;
+      }
+    }
+
+    .contact-bold {
+  font-weight: bold;
+  color: #333;
+}
+
+footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+    .site-footer {
+  background-color: #111;
+  color: #ccc;
+  padding: 4rem 2rem;
+  font-size: 0.95rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.footer-column {
+  flex: 1 1 220px;
+  min-width: 220px;
+}
+
+.footer-column h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #ccc;
+  transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #fff;
+}
+
+.footer-column p {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+.footer-column em {
+  font-style: italic;
+  color: #999;
+}
+
+.subscribe {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  border-bottom: 1px solid #666;
+  padding-bottom: 0.5rem;
+}
+
+.subscribe input[type="email"] {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0.4rem;
+  color: #fff;
+}
+
+.subscribe .send-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.subscribe .send-btn:hover {
+  color: #ffd700;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section with Image and Menu -->
+  <section class="hero-section" id="top">
+    <div class="hamburger-menu">
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <div class="menu">
+  <a href="Hunza.html.html">Home</a>
+  <a href="Hotel.html">Hotels</a>
+  <a href="Aboutus.html">About Us</a>
+  <a href="Gallery.html">Gallery</a>
+  <a href="News.html">News</a>
+  <a href="Contact.html">Contact</a>
+</div>
+    </div>
+    <h1>Contact Us</h1>
+    <img src="Hotel 1.jpg" alt="Contact Hero Image">
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-container">
+    <div class="form-section">
+      <form>
+        <div class="form-row">
+          <input type="text" placeholder="Name" required />
+          <input type="text" placeholder="Phone" required />
+        </div>
+        <input type="email" placeholder="Email" required />
+        <textarea placeholder="Write your message here..." required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+    <div class="info-section">
+        <h4>Contact Us</h4>
+      <br><p><span>ADDRESS:</span><br><br>98 West 21th Street, Suite<br>721 New York NY 10016</p>
+      <br><p><span>PHONE:</span><br><br>(+1) 435 3533</p>
+      <br><p><span>EMAIL:</span><br><br><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>Quick Link</h3>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Help</a></li>
+        <li><a href="#">Rooms</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Support</h3>
+      <ul>
+        <li><a href="#">Our Location</a></li>
+        <li><a href="#">The Hosts</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Restaurant</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Contact Info</h3>
+      <p><em>Address:</em><br> Scolage, Aliabad Hunza<br>Hunza, Gilgit Baltistan</p>
+      <p><em>Phone:</em><br> 03483674362</p>
+      <p><em>Email:</em><br> kubrazareen1@gmail.com </p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Subscribe</h3>
+      <p>Sign up for our newsletter</p>
+      <div class="subscribe">
+        <input type="email" placeholder="Your email..." />
+        <button class="send-btn">&#10148;</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

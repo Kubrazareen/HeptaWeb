@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us - Travel to Hunza</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-section img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .hero-content {
+      z-index: 1;
+    }
+
+    .hero-section h1 {
+      font-size: 4rem;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Hamburger Menu */
+    .hamburger-menu {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      z-index: 1001;
+    }
+
+    .menu-icon {
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    .menu {
+      position: absolute;
+      top: 2.8rem;
+      right: 0;
+      background: rgba(0, 0, 0, 0.95);
+      border-radius: 5px;
+      display: none;
+      flex-direction: column;
+      min-width: 180px;
+      padding: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu a {
+      padding: 0.8rem 1.2rem;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .menu a:hover {
+      background: #4B5320;
+    }
+
+    #menu-toggle:checked + .menu-icon + .menu {
+      display: flex;
+    }
+
+   .explore-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6rem 2rem;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .explore-content {
+      flex: 1 1 50%;
+      padding: 1rem;
+    }
+
+    .explore-content h2 {
+      font-size: 2.5rem;
+      color: #111;
+      margin-bottom: 1.5rem;
+    }
+
+    .explore-content p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .video-button {
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #007b7f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .hidden-video {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    .explore-image {
+      flex: 1 1 45%;
+      min-width: 300px;
+    }
+
+    .explore-image img {
+      width: 90%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .happycustomer-section {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.happycustomer-section h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.happycustomer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.happycustomer-card {
+  width: 280px;
+  background-color: #f0f8ff;
+  border-radius: 15px;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.happycustomer-card:hover {
+  transform: translateY(-5px);
+}
+
+.happycustomer-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #4B5320;
+}
+
+.happycustomer-card h4 {
+  margin-bottom: 0.5rem;
+  color: #007b7f;
+  font-size: 1.2rem;
+}
+
+.happycustomer-card p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+    .site-footer {
+  background-color: #111;
+  color: #ccc;
+  padding: 4rem 2rem;
+  font-size: 0.95rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.footer-column {
+  flex: 1 1 220px;
+  min-width: 220px;
+}
+
+.footer-column h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #ccc;
+  transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #fff;
+}
+
+.footer-column p {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+.footer-column em {
+  font-style: italic;
+  color: #999;
+}
+
+.subscribe {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  border-bottom: 1px solid #666;
+  padding-bottom: 0.5rem;
+}
+
+.subscribe input[type="email"] {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0.4rem;
+  color: #fff;
+}
+
+.subscribe .send-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.subscribe .send-btn:hover {
+  color: #ffd700;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section with Image and Menu -->
+  <section class="hero-section" id="hero">
+    <img src="What-makes-Hunza-Valley-unique-compared-to-other-destinations.jpg" alt="About Hunza">
+    <div class="hamburger-menu">
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+      <div class="menu">
+  <a href="Hunza.html.html">Home</a>
+  <a href="Hotel.html">Hotels</a>
+  <a href="Aboutus.html">About Us</a>
+  <a href="Gallery.html">Gallery</a>
+  <a href="News.html">News</a>
+  <a href="Contact.html">Contact</a>
+</div>
+    </div>
+    <div class="hero-content">
+      <h1>About Us</h1>
+      <p>Learn more about our mission, team, and dedication to Hunza tourism.</p>
+    </div>
+  </section>
+
+  <section id="explore" class="explore-section">
+    <div class="explore-content">
+      <h2>Welcome Travel & Tours</h2>
+      <p>
+       Welcome to our Hunza travel platform, your trusted companion for exploring the mesmerizing valley of Hunza.
+      We are a team of passionate locals and tourism experts committed to showcasing the true beauty, culture, and
+      hospitality of this stunning region. Our goal is to guide you through unforgettable experiences while preserving
+      the environment and enriching the local community. From hotel bookings to cultural insights, we’re here to help
+      you discover the heart of Hunza.
+      </p>
+    </div>
+    <div class="explore-image">
+      <img src="explore.jpg" alt="Mountains">
+    </div>
+  </section>
+
+  <section id="customers" class="happycustomer-section">
+  <h2>Our Team</h2>
+  <div class="happycustomer-container">
+    <div class="happycustomer-card">
+      <img src="kubra.jpg" alt="Kubra Zareen">
+      <h4>Kubra Zareen</h4>
+      <p>“CEO, Co-Founder”</p>
+    </div>
+    <div class="happycustomer-card">
+      <img src="pinko.jpg" alt="Shabana Malik">
+      <h4>Shabana Malik</h4>
+      <p>“CTO, Co-Founder”</p>
+    </div>
+    <div class="happycustomer-card">
+      <img src="sara.jpg" alt="Sara Jamal">
+      <h4>Sara Jamal</h4>
+      <p>“CTO, Co-Founder”</p>
+    </div>
+  </div>
+</section>
+
+
+  <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>Quick Link</h3>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Help</a></li>
+        <li><a href="#">Rooms</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Support</h3>
+      <ul>
+        <li><a href="#">Our Location</a></li>
+        <li><a href="#">The Hosts</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Restaurant</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Contact Info</h3>
+      <p><em>Address:</em><br> Scolage, Aliabad Hunza<br>Hunza, Gilgit Baltistan</p>
+      <p><em>Phone:</em><br> 03483674362</p>
+      <p><em>Email:</em><br> kubrazareen1@gmail.com </p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Subscribe</h3>
+      <p>Sign up for our newsletter</p>
+      <div class="subscribe">
+        <input type="email" placeholder="Your email..." />
+        <button class="send-btn">&#10148;</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
