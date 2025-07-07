@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>News - Travel to Hunza</title>
+  <meta charset="UTF-8" />
+  <title>About Us - Travel to Hunza</title>
   <style>
     * {
       margin: 0;
@@ -12,47 +12,48 @@
     }
 
     body {
-      background: #f8f8f8;
+      background-color: #fff;
       color: #333;
+      line-height: 1.6;
     }
 
+    /* Hero Section */
     .hero-section {
       position: relative;
       height: 100vh;
-      text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;
+      text-align: center;
       color: white;
-    }
-
-    .hero-section::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 0;
     }
 
     .hero-section img {
       position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       top: 0;
       left: 0;
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
       z-index: -1;
     }
 
-    .hero-section h1 {
+    .hero-content {
       z-index: 1;
-      font-size: 4rem;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
     }
 
+    .hero-section h1 {
+      font-size: 4rem;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Hamburger Menu */
     .hamburger-menu {
       position: absolute;
       top: 1rem;
@@ -80,13 +81,15 @@
       flex-direction: column;
       min-width: 180px;
       padding: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
     .menu a {
       padding: 0.8rem 1.2rem;
-      color: #fff;
+      color: white;
       text-decoration: none;
       font-weight: 600;
+      transition: background 0.3s;
     }
 
     .menu a:hover {
@@ -97,117 +100,118 @@
       display: flex;
     }
 
-    .news-container {
+   .explore-section {
       display: flex;
       flex-wrap: wrap;
-      padding: 4rem 2rem;
-      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6rem 2rem;
+      gap: 3rem;
       max-width: 1200px;
       margin: 0 auto;
+      text-align: left;
     }
 
-    .left-news {
-      flex: 3;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .news-card img {
-  width: 100%;
-  height: 140px; /* Reduced height */
-  object-fit: cover;
-}
-
-.news-card {
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  min-height: 220px; /* Optional for a more uniform look */
-}
-
-    .news-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .news-card .content {
+    .explore-content {
+      flex: 1 1 50%;
       padding: 1rem;
     }
 
-    .news-card .date {
-      color: gray;
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
+    .explore-content h2 {
+      font-size: 2.5rem;
+      color: #111;
+      margin-bottom: 1.5rem;
     }
 
-    .news-card h3 {
+    .explore-content p {
       font-size: 1.1rem;
-      color: #111;
-    }
-
-    .right-sidebar {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .search-box input[type="text"] {
-      width: 100%;
-      padding: 0.7rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .section-box {
-      background: white;
-      border-radius: 8px;
-      padding: 1rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .section-box h4 {
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #4B5320;
-      padding-bottom: 0.5rem;
-      font-size: 1.2rem;
-      color: #111;
-    }
-
-    .section-box ul {
-      list-style: none;
-    }
-
-    .section-box ul li {
-      margin-bottom: 0.8rem;
-      font-size: 0.95rem;
       color: #555;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
     }
 
-    .popular-post {
-      display: flex;
-      gap: 0.7rem;
-      margin-bottom: 1rem;
-    }
-
-    .popular-post img {
-      width: 60px;
-      height: 60px;
-      object-fit: cover;
+    .video-button {
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #007b7f;
+      color: white;
+      border: none;
       border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
     }
 
-    .popular-post-info {
-      font-size: 0.85rem;
+    .hidden-video {
+      display: none;
+      margin-top: 1rem;
     }
 
-    .popular-post-info .date {
-      color: gray;
-      font-size: 0.75rem;
+    .explore-image {
+      flex: 1 1 45%;
+      min-width: 300px;
     }
+
+    .explore-image img {
+      width: 90%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .happycustomer-section {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.happycustomer-section h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.happycustomer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.happycustomer-card {
+  width: 280px;
+  background-color: #f0f8ff;
+  border-radius: 15px;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.happycustomer-card:hover {
+  transform: translateY(-5px);
+}
+
+.happycustomer-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #4B5320;
+}
+
+.happycustomer-card h4 {
+  margin-bottom: 0.5rem;
+  color: #007b7f;
+  font-size: 1.2rem;
+}
+
+.happycustomer-card p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+}
+
 
     footer {
       background: #333;
@@ -326,9 +330,10 @@
 </head>
 <body>
 
-  <!-- Hero with Menu -->
-  <section class="hero-section" id="top">
-    <div class="hamburger-menu">
+  <!-- Hero Section with Image and Menu -->
+  <section class="hero-section" id="hero">
+    <img src="What-makes-Hunza-Valley-unique-compared-to-other-destinations.jpg" alt="About Hunza">
+  <div class="hamburger-menu">
   <input type="checkbox" id="menu-toggle" />
   <label for="menu-toggle" class="menu-icon">&#9776;</label>
   <div class="menu">
@@ -341,78 +346,49 @@
   </div>
 </div>
 
-    <h1>Latest News & Blogs</h1>
-    <img src="What-makes-Hunza-Valley-unique-compared-to-other-destinations.jpg" alt="Blog Hero Image">
-  </section>
-
-  <!-- Main News Grid -->
-  <section class="news-container">
-
-    <!-- Left News Section -->
-    <div class="left-news">
-      <div class="news-card">
-        <img src="mmmm.jpg" alt="News 1">
-        <div class="content">
-          <p class="date">February 26, 2025</p>
-          <h3>Explore Winter in Hunza</h3>
-        </div>
-      </div>
-      <div class="news-card">
-        <img src="Baltit fort.jpg" alt="News 2">
-        <div class="content">
-          <p class="date">March 1, 2025</p>
-          <h3>Culture and Cuisine of Hunza</h3>
-        </div>
-      </div>
-      <div class="news-card">
-        <img src="door.jpg" alt="News 3">
-        <div class="content">
-          <p class="date">March 5, 2025</p>
-          <h3>Travel Tips for Visitors</h3>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right Sidebar -->
-    <div class="right-sidebar">
-
-      <!-- Search -->
-      <div class="search-box">
-        <input type="text" placeholder="Search..." onfocus="window.location='#top'">
-      </div>
-
-      <!-- Categories -->
-      <div class="section-box">
-        <h4>Categories</h4>
-        <ul>
-          <li>Events (12)</li>
-          <li>Resto bar (4)</li>
-          <li>Nature (8)</li>
-          <li>Festivals (3)</li>
-        </ul>
-      </div>
-
-      <!-- Popular Posts -->
-      <div class="section-box">
-        <h4>Popular Posts</h4>
-        <div class="popular-post">
-          <img src="mmmm.jpg" alt="Popular 1">
-          <div class="popular-post-info">
-            <p>Explore Winter</p>
-            <p class="date">Feb 26, 2025</p>
-          </div>
-        </div>
-        <div class="popular-post">
-          <img src="door.jpg" alt="Popular 2">
-          <div class="popular-post-info">
-            <p>Hunza Culture</p>
-            <p class="date">Mar 1, 2025</p>
-          </div>
-        </div>
-      </div>
-
+    <div class="hero-content">
+      <h1>About Us</h1>
+      <p>Learn more about our mission, team, and dedication to Hunza tourism.</p>
     </div>
   </section>
+
+  <section id="explore" class="explore-section">
+    <div class="explore-content">
+      <h2>Welcome Travel & Tours</h2>
+      <p>
+       Welcome to our Hunza travel platform, your trusted companion for exploring the mesmerizing valley of Hunza.
+      We are a team of passionate locals and tourism experts committed to showcasing the true beauty, culture, and
+      hospitality of this stunning region. Our goal is to guide you through unforgettable experiences while preserving
+      the environment and enriching the local community. From hotel bookings to cultural insights, we’re here to help
+      you discover the heart of Hunza.
+      </p>
+    </div>
+    <div class="explore-image">
+      <img src="explore.jpg" alt="Mountains">
+    </div>
+  </section>
+
+  <section id="customers" class="happycustomer-section">
+  <h2>Our Team</h2>
+  <div class="happycustomer-container">
+    <div class="happycustomer-card">
+      <img src="kubra.jpg" alt="Kubra Zareen">
+      <h4>Kubra Zareen</h4>
+      <p>“CEO, Co-Founder”</p>
+    </div>
+    <div class="happycustomer-card">
+      <img src="pinko.jpg" alt="Shabana Malik">
+      <h4>Shabana Malik</h4>
+      <p>“CTO, Co-Founder”</p>
+    </div>
+    <div class="happycustomer-card">
+      <img src="sara.jpg" alt="Sara Jamal">
+      <h4>Sara Jamal</h4>
+      <p>“CTO, Co-Founder”</p>
+    </div>
+  </div>
+</section>
+
 
   <footer class="site-footer">
   <div class="footer-container">

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>News - Travel to Hunza</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Travel to Hunza</title>
   <style>
     * {
       margin: 0;
@@ -97,119 +98,88 @@
       display: flex;
     }
 
-    .news-container {
+    /* Contact Form */
+    .contact-container {
       display: flex;
       flex-wrap: wrap;
-      padding: 4rem 2rem;
-      gap: 2rem;
+      padding: 3rem 2rem;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: -5rem auto 3rem;
+      background-color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      position: relative;
+      z-index: 10;
     }
 
-    .left-news {
-      flex: 3;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+    .form-section {
+      flex: 2;
+      margin-right: 2rem;
     }
 
-    .news-card img {
-  width: 100%;
-  height: 140px; /* Reduced height */
-  object-fit: cover;
-}
-
-.news-card {
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  min-height: 220px; /* Optional for a more uniform look */
-}
-
-    .news-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .news-card .content {
-      padding: 1rem;
-    }
-
-    .news-card .date {
-      color: gray;
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .news-card h3 {
-      font-size: 1.1rem;
-      color: #111;
-    }
-
-    .right-sidebar {
-      flex: 1;
+    .form-row {
       display: flex;
-      flex-direction: column;
-      gap: 2rem;
+      gap: 1rem;
+      margin-bottom: 1rem;
     }
 
-    .search-box input[type="text"] {
+    form input, form textarea {
       width: 100%;
-      padding: 0.7rem;
+      padding: 10px;
+      margin-bottom: 1rem;
       border: 1px solid #ccc;
       border-radius: 5px;
     }
 
-    .section-box {
-      background: white;
-      border-radius: 8px;
-      padding: 1rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    form textarea {
+      height: 120px;
+      resize: none;
     }
 
-    .section-box h4 {
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #4B5320;
-      padding-bottom: 0.5rem;
-      font-size: 1.2rem;
-      color: #111;
-    }
-
-    .section-box ul {
-      list-style: none;
-    }
-
-    .section-box ul li {
-      margin-bottom: 0.8rem;
-      font-size: 0.95rem;
-      color: #555;
-    }
-
-    .popular-post {
-      display: flex;
-      gap: 0.7rem;
-      margin-bottom: 1rem;
-    }
-
-    .popular-post img {
-      width: 60px;
-      height: 60px;
-      object-fit: cover;
+    form button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #4B5320;
+      color: white;
+      font-weight: bold;
       border-radius: 5px;
+      cursor: pointer;
     }
 
-    .popular-post-info {
-      font-size: 0.85rem;
+    .info-section {
+      flex: 1;
+      font-size: 16px;
+      color: #333;
     }
 
-    .popular-post-info .date {
-      color: gray;
-      font-size: 0.75rem;
+    .info-section span {
+      color: teal;
+      font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
     }
 
-    footer {
+    .info-section a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        flex-direction: column;
+      }
+      .form-section {
+        margin-right: 0;
+      }
+    }
+
+    .contact-bold {
+  font-weight: bold;
+  color: #333;
+}
+
+footer {
       background: #333;
       color: #fff;
       text-align: center;
@@ -322,11 +292,12 @@
   }
 }
 
+
   </style>
 </head>
 <body>
 
-  <!-- Hero with Menu -->
+  <!-- Hero Section with Image and Menu -->
   <section class="hero-section" id="top">
     <div class="hamburger-menu">
   <input type="checkbox" id="menu-toggle" />
@@ -341,76 +312,28 @@
   </div>
 </div>
 
-    <h1>Latest News & Blogs</h1>
-    <img src="What-makes-Hunza-Valley-unique-compared-to-other-destinations.jpg" alt="Blog Hero Image">
+    <h1>Contact Us</h1>
+    <img src="Hotel 1.jpg" alt="Contact Hero Image">
   </section>
 
-  <!-- Main News Grid -->
-  <section class="news-container">
-
-    <!-- Left News Section -->
-    <div class="left-news">
-      <div class="news-card">
-        <img src="mmmm.jpg" alt="News 1">
-        <div class="content">
-          <p class="date">February 26, 2025</p>
-          <h3>Explore Winter in Hunza</h3>
+  <!-- Contact Section -->
+  <section class="contact-container">
+    <div class="form-section">
+      <form>
+        <div class="form-row">
+          <input type="text" placeholder="Name" required />
+          <input type="text" placeholder="Phone" required />
         </div>
-      </div>
-      <div class="news-card">
-        <img src="Baltit fort.jpg" alt="News 2">
-        <div class="content">
-          <p class="date">March 1, 2025</p>
-          <h3>Culture and Cuisine of Hunza</h3>
-        </div>
-      </div>
-      <div class="news-card">
-        <img src="door.jpg" alt="News 3">
-        <div class="content">
-          <p class="date">March 5, 2025</p>
-          <h3>Travel Tips for Visitors</h3>
-        </div>
-      </div>
+        <input type="email" placeholder="Email" required />
+        <textarea placeholder="Write your message here..." required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </div>
-
-    <!-- Right Sidebar -->
-    <div class="right-sidebar">
-
-      <!-- Search -->
-      <div class="search-box">
-        <input type="text" placeholder="Search..." onfocus="window.location='#top'">
-      </div>
-
-      <!-- Categories -->
-      <div class="section-box">
-        <h4>Categories</h4>
-        <ul>
-          <li>Events (12)</li>
-          <li>Resto bar (4)</li>
-          <li>Nature (8)</li>
-          <li>Festivals (3)</li>
-        </ul>
-      </div>
-
-      <!-- Popular Posts -->
-      <div class="section-box">
-        <h4>Popular Posts</h4>
-        <div class="popular-post">
-          <img src="mmmm.jpg" alt="Popular 1">
-          <div class="popular-post-info">
-            <p>Explore Winter</p>
-            <p class="date">Feb 26, 2025</p>
-          </div>
-        </div>
-        <div class="popular-post">
-          <img src="door.jpg" alt="Popular 2">
-          <div class="popular-post-info">
-            <p>Hunza Culture</p>
-            <p class="date">Mar 1, 2025</p>
-          </div>
-        </div>
-      </div>
-
+    <div class="info-section">
+        <h4>Contact Us</h4>
+      <br><p><span>ADDRESS:</span><br><br>98 West 21th Street, Suite<br>721 New York NY 10016</p>
+      <br><p><span>PHONE:</span><br><br>(+1) 435 3533</p>
+      <br><p><span>EMAIL:</span><br><br><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></p>
     </div>
   </section>
 
